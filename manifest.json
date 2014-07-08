@@ -1,12 +1,12 @@
 {
   "name": "ReTwit for Twitter",
   "short_name": "ReTwit",
-  "version": "2.5.2",
+  "version": "2.6",
   "description": "Give Twitter the modern look it's been waiting for!",
   "manifest_version": 2,
   "permissions": ["storage", "tabs", "notifications"],
-  "web_accessible_resources": ["sm-quote.png", "options.html"],
-  "options_page": "options.html",
+  "web_accessible_resources": ["/img/sm-quote.png", "/options/options.html"],
+  "options_page": "/options/options.html",
   "background": {
     "scripts": ["install.min.js"],
     "persistent": false
@@ -18,9 +18,9 @@
     "run_at": "document_start"
   } ],
   "page_action": {
-    "default_icon": { "19": "icon19.png", "38": "icon38.png" },
+    "default_icon": { "19": "/img/icon19.png", "38": "/img/icon38.png" },
     "default_title": "ReTwit Options"
   },
-  "icons": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" },
+  "icons": { "16": "/img/icon16.png", "48": "/img/icon48.png", "128": "/img/icon128.png" },
   "homepage_url": "https://chrome.google.com/webstore/detail/retwit-for-twitter/bkpjdbhepoejcinkccodijdpoifkfbnl?hl=en"
 }

@@ -4,10 +4,12 @@ function injectCSS() {
   if (document.body) {
     document.removeEventListener('DOMSubtreeModified', injectCSS, false);
 
-    var style = document.createElement("style");
+    var style = document.createElement('style');
 
-    chrome.storage.sync.get(["barcolor", "iconcolor", "corners", "width2", "width3", "fade", "shadow", "roundavatars", "previews", "labels",
-      "flip", "sidebar", "miniprofile", "miniprofilenormal", "miniprofilewide", "wtf", "trends", "footer", "font"], function(items){
+    chrome.storage.sync.get(['barcolor', 'iconcolor', 'corners', 'width2', 'width3',
+                             'fade', 'shadow', 'roundavatars', 'previews', 'labels',
+                             'flip', 'sidebar', 'miniprofile', 'miniprofilenormal',
+                             'miniprofilewide', 'wtf', 'trends', 'footer', 'font'], function(items){
 
         // Nav bar color
         if (items['barcolor'])
@@ -134,9 +136,15 @@ function injectCSS() {
   }
 }
 
-$(window).load(function() {
+window.onload = function() {
+  chrome.storage.sync.get('columns', function(items) {
+    if (items.columns && document.body.classList.contains('three-col')) {
+      document.body.classList.remove('three-col');
+    }
+  });
+
   // ReTwit options link in menu
-  $(".js-signout-button").before('<li><a href="' + chrome.extension.getURL("options.html") + '" target="_blank">ReTwit Options</a></li>');
+  $(".js-signout-button").before('<li><a href="' + chrome.extension.getURL("/options/options.html") + '" target="_blank">ReTwit Options</a></li>');
 
   // Media cards based on: https://github.com/ivanm/imgur-twitter-cards
   $(document).on('click', '.stream-item', function() {
@@ -195,4 +203,4 @@ $(window).load(function() {
 
     running = false;
   }
-});
+};

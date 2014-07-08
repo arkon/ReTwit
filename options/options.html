@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReTwit Options</title>
+    <meta charset='UTF-8'>
+    <link rel='stylesheet' href='options.min.css'>
+    <script src='../jquery-1.9.1.min.js'></script>
+  </head>
+  <body>
+    <div id='box'>
+      <div id='top'></div>
+      <div id='header'>
+        <div id='status'></div>
+        <div id='info'>
+          <img src='../img/icon48.png' alt='Retwit Logo' />
+          <span id='name'>Retwit for Twitter</span>
+        </div>
+        <div id='buttons'>
+          <button id='btnReset'>Reset</button>
+          <button id='btnSave'>Save</button>
+        </div>
+      </div>
+      <div id='content'>
+        <h2>General</h2>
+        <section>
+          <span class='selector'>Font:</span>
+          <select id='fonts'>
+            <option>ReTwit default (Segoe UI, Helvetica, Arial)</option>
+            <option>Twitter default (Gotham)</option>
+          </select>
+        </section>
+        <section>
+          <span class='selector'>Top bar color:</span>
+          <input id='barcolor' type='color' value='#252525' list='barclr' />
+          <datalist id='barclr'>
+            <option>#252525</option>
+            <option>#e9eaed</option>
+            <option>#ffffff</option>
+            <option>#eeeeee</option>
+            <option>#777777</option>
+          </datalist>
+        </section>
+          <span class='selector'>Nav icon color:</span>
+          <input id='iconcolor' type='color' value='#66757f' list='iconclr' />
+          <datalist id='iconclr'>
+            <option>#66757f</option>
+            <option>#ffffff</option>
+          </datalist>
+          <p>You can modify your profile's theme in your <a href='https://twitter.com/settings/design' target='_blank'>settings page</a>.</p>
+        </section>
+        <section>
+          <label>
+            <input id='shadow' type='checkbox' />
+            <span>Show profile header shadow overlay</span>
+          </label>
+        </section>
+        <section>
+          <label>
+            <input id='corners' type='checkbox' />
+            <span>Square corners</span>
+          </label>
+        </section>
+        <h2>Tweets</h2>
+        <section>
+          <label>
+            <input id='columns' type='checkbox' />
+            <span>2 columns only</span>
+          </label>
+        </section>
+        <section>
+          <span id='chosenWidth2'>Content width (2 columns): 850px</span>
+          <input id='width2' type='range' min='600' max='4000' step='1' value='850' />
+        </section>
+        <section>
+          <span id='chosenWidth3'>Content width (3 columns): 1200px</span>
+          <input id='width3' type='range' min='600' max='4000' step='1' value='1200' />
+        </section>
+        <section>
+          <label>
+            <input id='roundavatars' type='checkbox' />
+            <span>Rounded avatars</span>
+          </label>
+        </section>
+        <section>
+          <label>
+            <input id='previews' type='checkbox' />
+            <span>Hide image previews</span>
+          </label>
+        </section>
+        <section>
+          <label>
+            <input id='labels' type='checkbox' />
+            <span>Hide button labels (Reply, Retweet, etc.)</span>
+          </label>
+        </section>
+        <h2>Sidebar</h2>
+        <section>
+          <label>
+            <input id='sidebar' type='checkbox' />
+            <span>Hide sidebar</span>
+          </label>
+        </section>
+        <section>
+          <label>
+            <input id='flip' class='change' type='checkbox' />
+            <span>Show sidebar on left (when window is smaller and has 2 columns)</span>
+          </label>
+        </section>
+        <section>
+          <span id='chosenFade'>Sidebar opacity: 70%</span>
+          <input id='fade' type='range' min='25' max='100' step='1' value='70' />
+        </section>
+        <section>
+          <label>
+            <input id='miniprofile' name='mini' class='change' type='radio' />
+            <span>Hide mini profile module</span>
+          </label>
+        </section>
+        <section>
+          <label>
+            <input id='miniprofilenormal' name='mini' class='change' type='radio' checked />
+            <span>Show regular mini profile in sidebar</span>
+          </label>
+        </section>
+        <!-- <section>
+          <label>
+            <input id='miniprofilewide' name='mini' class='change' type='radio' />
+            <span>Show full width mini profile at the top</span>
+          </label>
+        </section> -->
+        <section>
+          <label>
+            <input id='wtf' class='change' type='checkbox' />
+            <span>Hide 'Who To Follow' module</span>
+          </label>
+        </section>
+        <section>
+          <label>
+            <input id='trends' class='change' type='checkbox' />
+            <span>Hide 'Trends' module</span>
+          </label>
+        </section>
+        <section>
+          <label>
+            <input id='footer' class='change' type='checkbox' />
+            <span>Hide footer module</span>
+          </label>
+        </section>
+        <h2>About ReTwit</h2>
+        <div id='twitter_buttons'>
+          <iframe allowtransparency='true' frameborder='0' scrolling='no'
+            src='http://platform.twitter.com/widgets/tweet_button.html?text=I%20love%20using%20ReTwit%20to%20make%20Twitter%20awesome!%20Check%20it%20out!&amp;url=http%3A%2F%2Fgoo.gl%2FB6Ic5v&amp;via=GetReTwit&amp;count=none'
+            style='width:75px;height:20px;'></iframe>
+          <iframe allowtransparency='true' frameborder='0' scrolling='no'
+            src='http://platform.twitter.com/widgets/follow_button.html?screen_name=GetReTwit'
+            style='width:210px;height:20px;'></iframe>
+          <p><a href='https://chrome.google.com/webstore/detail/retwit-for-twitter/bkpjdbhepoejcinkccodijdpoifkfbnl'>Rate and review ReTwit in the Chrome Web Store!</a></p>
+        </div>
+        <p>ReTwit is property of ThinqTek Studios and is in no way affiliated with Twitter, Inc..
+        <p>Twitter is property of Twitter, Inc. (<a href='http://www.twitter.com/twitter'>@twitter</a>).
+        <span id='tip'>Tip: you can fine tune the sliders' values by using your arrow keys after dragging the indicator.</span>
+      </div>
+      <div id='footer'>
+        <a href='http://www.thinqtek.com/' target='_blank'>Created with love by ThinqTek Studios</a>
+      </div>
+    </div>
+  </body>
+  <script src='options.min.js'></script>
+</html>

@@ -142,7 +142,7 @@
   margin-top: 1em;
 }
 .sm-quote {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/sm-quote.png) !important;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/sm-quote.png) !important;
   height: 13px;
   opacity: 0.4;
   width: 18px;
