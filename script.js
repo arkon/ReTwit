@@ -48,7 +48,7 @@ function injectCSS() {
         // Round avatars
         if (items['roundavatars']) {
           style.innerHTML += '.avatar,.ProfileTweet-avatar{border:1px solid #fff;box-shadow:0 0 0 1px #eee;margin-top:-2px;margin-left:-2px;}';
-          style.innerHTML += '.avatar,.profile-card.profile-header .profile-picture,.current-user img,.ProfileTweet-avatar,.ProfileAvatar-image,.ProfileAvatar-placeholderImage,.ProfileAvatar,.ProfileCard-avatarImage,.ProfileCard-avatarLink,.DashboardProfileCard-avatarLink,.DashboardProfileCard-avatarImage,.ProfilePopupContainer--bellbird .ProfileHeader .profile-picture{-webkit-border-radius:100%!important;border-radius:100%!important;}';
+          style.innerHTML += '.avatar,.profile-card.profile-header .profile-picture,.nav .session .dropdown-toggle,.current-user img,.ProfileTweet-avatar,.ProfileAvatar-image,.ProfileAvatar-placeholderImage,.ProfileAvatar,.ProfileCard-avatarImage,.ProfileCard-avatarLink,.DashboardProfileCard-avatarLink,.DashboardProfileCard-avatarImage,.ProfilePopupContainer--bellbird .ProfileHeader .profile-picture,.DMConversationAvatar--1 .DMConversationAvatar-image{-webkit-border-radius:100%!important;border-radius:100%!important;}';
         }
 
         // Image previews

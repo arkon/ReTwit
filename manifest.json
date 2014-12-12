@@ -1,7 +1,7 @@
 {
   "name": "ReTwit for Twitter",
   "short_name": "ReTwit",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "Give Twitter the modern look it's been waiting for!",
   "manifest_version": 2,
   "permissions": ["storage", "tabs", "notifications"],

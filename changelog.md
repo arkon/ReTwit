@@ -1,6 +1,9 @@
 Changelog
 =========
 
+v2.6.2
+-Minor fixes (logo, searchbar, rounded avatar tweaks)
+
 v2.6.1
 -Fix for nav bar item padding
 

@@ -14,6 +14,8 @@
 }
 .global-nav .search-input {
   background: rgba(0,0,0,.15) !important;
+  border: none !important;
+  float: right;
   width: 101px !important;
 }
 .global-nav .search-input:focus, .global-nav .search-input.focus {
@@ -22,6 +24,7 @@
 .bird-topbar-etched, .pushstate-spinner {
   float: left;
   margin-left: 0 !important;
+  left: -25px !important;
 }
 .bird-topbar-etched {
   margin-top: 13px !important;
@@ -34,7 +37,6 @@
 }
 .nav>li>a {
   font-size: 0 !important;
-  padding: 0 3px !important;
 }
 .nav .active a {
   background: none !important;
@@ -139,6 +141,9 @@
 .AttributionName {
   margin-left: 5px;
 }
+.ProfileNav-value {
+  font-weight: 300 !important;
+}
 .CardFooter {
   margin-top: 1em;
 }
@@ -185,7 +190,7 @@ h2, .fullname, .stats a strong {
 .stats a strong {
   font-size: 14px !important;
 }
-.flex-module h3, .WhoToFollow-title {
+.flex-module h3, .trends .trend-location, .WhoToFollow-title {
   font-size: 12px !important;
   text-transform: uppercase;
 }
@@ -200,6 +205,9 @@ h2, .fullname, .stats a strong {
 }
 .btn {
   background-image: none !important;
+}
+.primary-btn {
+  box-shadow: 0 !important;
 }
 
 /* DM */
