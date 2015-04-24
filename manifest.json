@@ -1,10 +1,10 @@
 {
   "name": "ReTwit for Twitter",
   "short_name": "ReTwit",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "Give Twitter the modern look it's been waiting for!",
   "manifest_version": 2,
-  "permissions": ["storage", "tabs", "notifications"],
+  "permissions": ["storage", "tabs", "notifications", "http://photos-a.ak.instagram.com/*"],
   "web_accessible_resources": ["/img/sm-quote.png", "/options/options.html"],
   "options_page": "/options/options.html",
   "background": {

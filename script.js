@@ -147,7 +147,7 @@ window.onload = function() {
   $(".js-signout-button").before('<li><a href="' + chrome.extension.getURL("/options/options.html") + '" target="_blank">ReTwit Options</a></li>');
 
   // Media cards based on: https://github.com/ivanm/imgur-twitter-cards
-  $(document).on('click', '.stream-item', function() {
+  $(document).on('mousedown', '.js-stream-item', function() {
     appendCard($(this));
   });
 
@@ -157,7 +157,7 @@ window.onload = function() {
 
   function appendCard(el) {
     if (!el.hasClass("imgur") && !el.hasClass("instagram")) {
-      text = el.find(".js-tweet-text").text();
+      text = el.find(".tweet-text").text();
       if (text) {
         link = el.find('[data-expanded-url]').attr('data-expanded-url');
 
