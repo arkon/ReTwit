@@ -3,6 +3,7 @@ Changelog
 
 v3.0
 - Removed quote functionality now that Twitter's added it back
+- Removed tweet action label hiding since it's the default now
 - Cleaned up the code a lot
 
 v2.6.2

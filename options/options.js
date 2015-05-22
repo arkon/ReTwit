@@ -37,7 +37,6 @@ $(document).ready(function () {
     $('#chosenFade').html('Sidebar fade percentage: 70%');
     $('#roundavatars').attr('checked', true);
     $('#previews').attr('checked', false);
-    $('#labels').attr('checked', true);
     $('#flip').attr('checked', false);
     $('#sidebar').attr('checked', false);
     $('#miniprofile').attr('checked', false);
@@ -90,7 +89,6 @@ function save () {
     'width3':            $('#width3').val(),
     'roundavatars':      $('#roundavatars').is(':checked'),
     'previews':          $('#previews').is(':checked'),
-    'labels':            $('#labels').is(':checked'),
     'sidebar':           $('#sidebar').is(':checked'),
     'flip':              $('#flip').is(':checked'),
     'fade':              $('#fade').val(),
@@ -105,7 +103,7 @@ function save () {
 
 function loadChanges () {
   storage.get(['barcolor', 'iconcolor', 'corners', 'columns', 'width2', 'width3',
-               'fade', 'shadow', 'roundavatars', 'previews', 'labels', 'flip',
+               'fade', 'shadow', 'roundavatars', 'previews', 'flip',
                'sidebar', 'miniprofile', 'miniprofilenormal', 'wtf', 'trends',
                'footer', 'font'], function(items) {
     if (items['barcolor'])
@@ -146,9 +144,6 @@ function loadChanges () {
 
     if (items['previews'])
       $('#previews').prop('checked', true);
-
-    if (items['labels'])
-      $('#labels').prop('checked', true);
 
     if (items['labels'])
       $('#labels').prop('checked', true);

@@ -7,7 +7,7 @@ function injectCSS () {
     var style = document.createElement('style');
 
     chrome.storage.sync.get(['barcolor', 'iconcolor', 'corners', 'width2', 'width3',
-                             'fade', 'shadow', 'roundavatars', 'previews', 'labels',
+                             'fade', 'shadow', 'roundavatars', 'previews',
                              'flip', 'sidebar', 'miniprofile', 'miniprofilenormal',
                              'miniprofilewide', 'wtf', 'trends', 'footer', 'font'], function(items){
 
@@ -53,10 +53,6 @@ function injectCSS () {
           style.innerHTML += '.expanded-conversation .with-media-forward .cards-base .media-forward{max-height:none!important;}';
         }
 
-        // Tweet button labels
-        if (items['labels'])
-          style.innerHTML += '.tweet-actions .with-icn b{font-size:0!important;line-height:10px!important;}';
-
         // Sidebar on left
         if (items['flip']) {
           style.innerHTML += 'body:not(.three-col) .dashboard{float:left!important;}';
@@ -82,7 +78,7 @@ function injectCSS () {
         if (items['miniprofile'])
           style.innerHTML += '.mini-profile{display:none!important;}';
 
-        // wtf
+        // who to follow
         if (items['wtf'])
           style.innerHTML += '.wtf-module{display:none!important;}';
 
