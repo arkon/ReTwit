@@ -1,225 +1,324 @@
 /* Nav */
+
 .global-nav .container {
   text-align: left !important;
 }
-.global-nav[role=navigation] {
-  float: none !important;
+
+.global-nav[role='navigation'] {
   display: inline-block;
+  float: none !important;
 }
+
 .global-nav .nav {
   margin: 0 10px !important;
 }
+
 .global-nav .form-search {
   margin-right: 0 !important;
 }
+
 .global-nav .search-input {
   background: rgba(0,0,0,.15) !important;
   border: none !important;
   float: right;
   width: 110px !important;
 }
-.global-nav .search-input:focus, .global-nav .search-input.focus {
+
+.global-nav .search-input:focus,
+.global-nav .search-input.focus {
   width: 163px !important;
 }
-.bird-topbar-etched, .pushstate-spinner {
+
+.bird-topbar-etched,
+.pushstate-spinner {
   float: left;
-  margin-left: 0 !important;
   left: -25px !important;
+  margin-left: 0 !important;
 }
+
 .bird-topbar-etched {
   margin-top: 13px !important;
 }
+
 .pushstate-spinner {
   margin-top: 8px !important;
 }
+
 .topbar-divider {
   display: none;
 }
-.nav>li>a {
+
+.nav > li > a {
   font-size: 0 !important;
 }
+
 .nav .active a {
   background: none !important;
 }
-.global-nav .people .count, .global-nav .people .count .count-inner, .dm-new {
+
+.global-nav .people .count,
+.global-nav .people .count .count-inner,
+.dm-new {
   border-radius: 100% !important;
 }
+
 .global-dm-envelope {
   margin-left: 15px !important;
 }
-.global-nav, .nav .active>a, .btn-tweet, .card-soccer .cover, .button, .button.selected {
-  background-image: none !important;
-}
-.btn-tweet {
-  border: none !important;
-}
-  .btn-tweet:hover {
-    background-color: #4791d3 !important;
-  }
-.dropdown-menu li>a:hover, .dropdown-menu li>a:focus, .dropdown-menu .dropdown-link:hover, .dropdown-menu .dropdown-link:focus, .dropdown-menu li:hover .dropdown-link, .dropdown-menu li:focus .dropdown-link, .dropdown-menu .typeahead-recent-search-item.selected, .dropdown-menu .typeahead-saved-search-item.selected, .dropdown-menu .selected a, .dropdown-menu .dropdown-link.selected {
+
+.global-nav,
+.nav .active > a,
+.btn-tweet,
+.card-soccer .cover,
+.button,
+.button.selected {
   background-image: none !important;
 }
 
+.btn-tweet {
+  border: none !important;
+}
+
+  .btn-tweet:hover {
+    background-color: #4791d3 !important;
+  }
+
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-menu .dropdown-link:hover,
+.dropdown-menu .dropdown-link:focus,
+.dropdown-menu li:hover .dropdown-link,
+.dropdown-menu li:focus .dropdown-link,
+.dropdown-menu .typeahead-recent-search-item.selected,
+.dropdown-menu .typeahead-saved-search-item.selected,
+.dropdown-menu .selected a,
+.dropdown-menu .dropdown-link.selected {
+  background-image: none !important;
+}
+
+
 /* Content */
+
 .three-col .content-main {
   width: 100% !important;
 }
-.btn, .twttr-dialog-header h3, .settings-header {
+
+.btn,
+.twttr-dialog-header h3,
+.settings-header {
   font-weight: normal !important;
 }
+
 .icon-btn .text {
   display: none !important;
 }
+
 #suggested-users {
   clear: none !important;
 }
+
 #content-main-heading {
   font-size: 14px !important;
   text-transform: uppercase;
 }
+
 .account-summary .content {
   min-height: 32px !important;
 }
+
 .tweet ._timestamp {
   float: right !important;
 }
-.activity-truncated-tweet ._timestamp, .activity-supplement ._timestamp {
+
+.activity-truncated-tweet ._timestamp,
+.activity-supplement ._timestamp {
   float: left !important;
 }
+
 .tweet ._timestamp::before {
   content: ' ' !important;
 }
-.dm-button .dm-new, .ui-slider-handle {
+
+.dm-button .dm-new,
+.ui-slider-handle {
   border-radius: 50% !important;
 }
-.content-main, .profile-card.profile-header {
+
+.content-main,
+.profile-card.profile-header {
   float: left !important;
 }
+
 .expand-action-wrapper {
   color: #c9c9c9 !important;
 }
-.photo-selector .btn, .geo-picker-btn {
+
+.photo-selector .btn,
+.geo-picker-btn {
   background-color: #fff !important;
 }
-#header, .btn-tweet, .nav .active a, .global-nav .search-input, .topbar, .stream .stream-item .tweet-actions,
-.stream .stream-item.open .tweet-actions, .stream .stream-item-activity .stream-item-footer .tweet-actions,
+
+#header,
+.btn-tweet,
+.nav .active a,
+.global-nav .search-input,
+.topbar,
+.stream
+.stream-item .tweet-actions,
+.stream .stream-item.open .tweet-actions,
+.stream .stream-item-activity .stream-item-footer .tweet-actions,
 .stream .stream-item.open .expanded-conversation .original-tweet-container .tweet-actions {
   box-shadow: none !important;
-  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
+
 .stream.discover-stream .stream-item .stream-item-footer {
   text-align: left !important;
 }
+
 .profile-card.profile-header .profile-header-inner {
   background-position: center;
   background-size: cover;
   width: 100%;
 }
+
 .rosetta.show-header-options .profile-header-mask {
   height: 59px !important;
   width: 100% !important;
 }
+
 .profile-editing .profile-header-modal {
   width: 100% !important;
 }
-.inline-reply-tweetbox.swift .tweet-box, .inline-reply-tweetbox .thumbnail-container {
+
+.inline-reply-tweetbox.swift .tweet-box,
+.inline-reply-tweetbox .thumbnail-container {
   width: auto !important;
 }
+
 .gallery-tweet .tweet p {
   color: #fff !important;
 }
-.account, .interest-category, .list, .saved-search, .tweet:not(.open) , .app, .discover-item, .stream-item-activity-me,
-.content-main .expansion-container>.original-tweet-container {
+
+.account, .interest-category, .list,
+.saved-search,
+.tweet:not(.open),
+.app,
+.discover-item,
+.stream-item-activity-me,
+.content-main .expansion-container > .original-tweet-container {
   border-bottom: 0 !important;
 }
+
 .stream-item-activity-me .latest-tweet .tweet-row {
   max-width: 100% !important;
 }
-.cards-multimedia, .cards-promotion {
+
+.cards-multimedia,
+.cards-promotion {
   text-align: center;
 }
+
 .CardAttribution {
   margin: 1em 0;
 }
+
 .AttributionName {
   margin-left: 5px;
 }
+
 .ProfileNav-value {
   font-weight: 300 !important;
 }
+
 .CardFooter {
   margin-top: 1em;
 }
-.sm-quote {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/sm-quote.png) !important;
-  height: 13px;
-  opacity: 0.4;
-  width: 18px;
-}
-  .tweet:hover .sm-quote {
-    opacity: 1;
-  }
+
 
 /* Sidebar */
+
 body:not(.three-col) .dashboard {
   float: right !important;
 }
+
 .dashboard {
-  -webkit-transition: .15s linear;
   clear: none !important;
+  transition: .15s linear;
 }
+
 .dashboard .module:hover, .dashboard .module:active {
   opacity: 1;
-  -webkit-transition: .15s linear;
+  transition: .15s linear;
 }
+
 body:not(.three-col) .module .list-link .Icon--caretRight {
-  -webkit-transform: rotate(180deg);
   float: left !important;
   margin-right: 10px;
+  transform: rotate(180deg);
 }
+
 .pull-right {
   margin-right: -25px;
 }
+
 .inline-reply-tweetbox {
   border-top: 1px solid #ddd;
 }
+
 .profile-card.profile-header .avatar {
   border: 0;
   margin: 0;
 }
-h2, .fullname, .stats a strong {
+
+h2,
+.fullname,
+.stats a strong {
   font-weight: normal !important;
 }
+
 .stats a strong {
   font-size: 14px !important;
 }
-.flex-module h3, .trends .trend-location, .WhoToFollow-title {
+
+.flex-module h3,
+.trends .trend-location,
+.WhoToFollow-title {
   font-size: 12px !important;
   text-transform: uppercase;
 }
+
 .account-summary + .account-summary {
   margin-top: 20px !important;
 }
+
 .buffer-tweet-button {
   background: #4c9e46 !important;
 }
+
 .tweet p {
   color: #555;
 }
+
 .btn {
   background-image: none !important;
 }
+
 .primary-btn {
   box-shadow: 0 !important;
 }
+
 
 /* DM */
 .dm .avatar {
   top: 11px !important;
 }
+
 .dm-message {
   box-shadow: none !important;
 }
+
 .dm-thread .chev-right {
-  -webkit-transform: none;
+  transform: none;
 }
+

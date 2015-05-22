@@ -9,7 +9,7 @@ function injectCSS () {
     chrome.storage.sync.get(['barcolor', 'iconcolor', 'corners', 'width2', 'width3',
                              'fade', 'roundavatars', 'previews',
                              'flip', 'sidebar', 'miniprofile', 'miniprofilenormal',
-                             'miniprofilewide', 'wtf', 'trends', 'footer', 'font'], function(items){
+                             'miniprofilewide', 'wtf', 'trends', 'footer', 'font'], function (items) {
 
         // Nav bar color
         if (items['barcolor'])
