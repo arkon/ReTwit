@@ -8,22 +8,22 @@ var fonts = ['Anonymous Pro', 'Arial', 'Arvo', 'Droid Sans', 'Droid Serif', 'Mav
              'Roboto Condensed', 'Roboto Slab', 'Source Code Pro', 'Source Sans Pro',
              'Tahoma', 'Times', 'Ubuntu'];
 
-function loadFonts() {
-  var x = document.getElementById('fonts');
+function loadFonts () {
+  var selector = document.getElementById('fonts');
   for (i = 0; i < fonts.length; i++) {
     var option = document.createElement('option');
     option.text = fonts[i];
-    x.add(option);
+    selector.add(option);
   }
 }
 
-$(document).ready(function() {
-  document.getElementById('btnSave').addEventListener('click', function() {
+$(document).ready(function () {
+  document.getElementById('btnSave').onclick = function () {
     save();
     message('Settings saved, refresh Twitter!');
-  });
+  };
 
-  document.getElementById('btnReset').addEventListener('click', function() {
+  document.getElementById('btnReset').onclick = function () {
     $('#barcolor').val('#252525');
     $('#iconcolor').val('#66757f');
     $('#shadow').attr('checked', true);
@@ -42,7 +42,6 @@ $(document).ready(function() {
     $('#sidebar').attr('checked', false);
     $('#miniprofile').attr('checked', false);
     $('#miniprofilenormal').attr('checked', true);
-    $('#miniprofilewide').attr('checked', false);
     $('#wtf').attr('checked', false);
     $('#trends').attr('checked', false);
     $('#footer').attr('checked', false);
@@ -51,28 +50,28 @@ $(document).ready(function() {
 
     save();
     message('Settings reset.');
-  });
+  };
 });
 
-$('#columns').change(function() {
+$('#columns').change(function () {
   var show = $('#columns').is(':checked');
   $('#chosenWidth3').toggle(!show);
   $('#width3').toggle(!show);
 })
 
-$('#width2').change(function() {
+$('#width2').change(function () {
   $('#chosenWidth2').html('Content width (2 columns): ' + $('#width2').val() + 'px');
 });
 
-$('#width3').change(function() {
+$('#width3').change(function () {
   $('#chosenWidth3').html('Content width (3 columns): ' + $('#width3').val() + 'px');
 });
 
-$('#fade').change(function() {
+$('#fade').change(function () {
   $('#chosenFade').html('Sidebar opacity: ' + $('#fade').val() + '%');
 });
 
-$('#sidebar').click(function(){
+$('#sidebar').click(function (){
   var paramChangeBoxes = $('input.change');
   if ($(this).is(':checked'))
     paramChangeBoxes.attr('disabled', 'disabled');
@@ -80,33 +79,35 @@ $('#sidebar').click(function(){
     paramChangeBoxes.removeAttr('disabled');
 });
 
-function save() {
-  storage.set({'barcolor': $('#barcolor').val()});
-  storage.set({'iconcolor': $('#iconcolor').val()});
-  storage.set({'shadow': $('#shadow').is(':checked')});
-  storage.set({'corners': $('#corners').is(':checked')});
-  storage.set({'columns': $('#columns').is(':checked')});
-  storage.set({'width2': $('#width2').val()});
-  storage.set({'width3': $('#width3').val()});
-  storage.set({'roundavatars': $('#roundavatars').is(':checked')});
-  storage.set({'previews': $('#previews').is(':checked')});
-  storage.set({'labels': $('#labels').is(':checked')});
-  storage.set({'sidebar': $('#sidebar').is(':checked')});
-  storage.set({'flip': $('#flip').is(':checked')});
-  storage.set({'fade': $('#fade').val()});
-  storage.set({'miniprofile': $('#miniprofile').is(':checked')});
-  storage.set({'miniprofilenormal': $('#miniprofilenormal').is(':checked')});
-  storage.set({'miniprofilewide': $('#miniprofilewide').is(':checked')});
-  storage.set({'wtf': $('#wtf').is(':checked')});
-  storage.set({'trends': $('#trends').is(':checked')});
-  storage.set({'footer': $('#footer').is(':checked')});
-  storage.set({'font': $('#fonts').val()});
+function save () {
+  storage.set({
+    'barcolor':          $('#barcolor').val(),
+    'iconcolor':         $('#iconcolor').val(),
+    'shadow':            $('#shadow').is(':checked'),
+    'corners':           $('#corners').is(':checked'),
+    'columns':           $('#columns').is(':checked'),
+    'width2':            $('#width2').val(),
+    'width3':            $('#width3').val(),
+    'roundavatars':      $('#roundavatars').is(':checked'),
+    'previews':          $('#previews').is(':checked'),
+    'labels':            $('#labels').is(':checked'),
+    'sidebar':           $('#sidebar').is(':checked'),
+    'flip':              $('#flip').is(':checked'),
+    'fade':              $('#fade').val(),
+    'miniprofile':       $('#miniprofile').is(':checked'),
+    'miniprofilenormal': $('#miniprofilenormal').is(':checked'),
+    'wtf':               $('#wtf').is(':checked'),
+    'trends':            $('#trends').is(':checked'),
+    'footer':            $('#footer').is(':checked'),
+    'font':              $('#fonts').val()
+  });
 }
 
-function loadChanges() {
-  storage.get(['barcolor', 'iconcolor', 'corners', 'columns', 'width2', 'width3', 'fade', 'shadow',
-               'roundavatars', 'previews', 'labels', 'flip', 'sidebar', 'miniprofile', 'miniprofilenormal',
-               'miniprofilewide', 'wtf', 'trends', 'footer', 'font'], function(items) {
+function loadChanges () {
+  storage.get(['barcolor', 'iconcolor', 'corners', 'columns', 'width2', 'width3',
+               'fade', 'shadow', 'roundavatars', 'previews', 'labels', 'flip',
+               'sidebar', 'miniprofile', 'miniprofilenormal', 'wtf', 'trends',
+               'footer', 'font'], function(items) {
     if (items['barcolor'])
       $('#barcolor').val(items['barcolor']);
 
@@ -166,9 +167,6 @@ function loadChanges() {
     if (items['miniprofilenormal'])
       $('#miniprofilenormal').prop('checked', true);
 
-    if (items['miniprofilewide'])
-      $('#miniprofilewide').prop('checked', true);
-
     if (items['wtf'])
       $('#wtf').prop('checked', true);
 
@@ -185,12 +183,14 @@ function loadChanges() {
   });
 }
 
-function message(msg) {
+function message (msg) {
   var message = $('#status');
   message.text(msg);
-  setTimeout(function() {
+
+  setTimeout(function () {
     message.css('opacity', '0');
   }, 2000);
+
   message.css('opacity', '1');
 }
 
