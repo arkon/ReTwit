@@ -1,26 +1,42 @@
 {
+  "manifest_version": 2,
+
   "name": "ReTwit for Twitter",
   "short_name": "ReTwit",
-  "version": "2.6.3",
   "description": "Give Twitter the modern look it's been waiting for!",
-  "manifest_version": 2,
-  "permissions": ["storage", "tabs", "notifications", "http://photos-a.ak.instagram.com/*"],
-  "web_accessible_resources": ["/img/sm-quote.png", "/options/options.html"],
+  "version": "3.0",
   "options_page": "/options/options.html",
+
+  "permissions": [
+    "storage",
+    "tabs",
+    "notifications",
+    "http://photos-a.ak.instagram.com/*"
+  ],
+  "web_accessible_resources": [
+    "/img/sm-quote.png",
+    "/options/options.html"
+  ],
+
   "background": {
-    "scripts": ["install.min.js"],
+    "scripts": ["install.js"],
     "persistent": false
   },
-  "content_scripts": [ {
+  "content_scripts": [{
     "matches": [ "http://twitter.com/*", "https://twitter.com/*" ],
-    "css": ["main.min.css"],
-    "js": ["jquery-1.9.1.min.js", "script.min.js"],
+    "css": ["main.css"],
+    "js": ["jquery-2.1.4.min.js", "script.js"],
     "run_at": "document_start"
-  } ],
+  }],
   "page_action": {
     "default_icon": { "19": "/img/icon19.png", "38": "/img/icon38.png" },
     "default_title": "ReTwit Options"
   },
-  "icons": { "16": "/img/icon16.png", "48": "/img/icon48.png", "128": "/img/icon128.png" },
-  "homepage_url": "https://chrome.google.com/webstore/detail/retwit-for-twitter/bkpjdbhepoejcinkccodijdpoifkfbnl?hl=en"
+
+  "icons": {
+    "16": "/img/icon16.png",
+    "48": "/img/icon48.png",
+    "128": "/img/icon128.png"
+  },
+  "homepage_url": "https://chrome.google.com/webstore/detail/retwit-for-twitter/bkpjdbhepoejcinkccodijdpoifkfbnl"
 }

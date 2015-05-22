@@ -1,6 +1,6 @@
 document.addEventListener('DOMSubtreeModified', injectCSS, false);
 
-function injectCSS() {
+function injectCSS () {
   if (document.body) {
     document.removeEventListener('DOMSubtreeModified', injectCSS, false);
 
@@ -40,10 +40,6 @@ function injectCSS() {
         // Sidebar fade
         if (items['fade'])
           style.innerHTML += '.dashboard .module{opacity:' + (items['fade'] / 100) + ';}';
-
-        // Don't fade out wide mini profile bar
-        if (items['miniprofilewide'])
-          style.innerHTML += '.mini-profile{opacity:1!important;}';
 
         // Round avatars
         if (items['roundavatars']) {
@@ -86,24 +82,6 @@ function injectCSS() {
         if (items['miniprofile'])
           style.innerHTML += '.mini-profile{display:none!important;}';
 
-        // miniprofilewide
-        if (items['miniprofilewide'] && !items['sidebar']) {
-          style.innerHTML += '.mini-profile{position:absolute;top:57px;left:23px;width:calc(100% - 46px);background:transparent;z-index:999;}';
-          style.innerHTML += '.wrapper-home .content-main,.wrapper-settings .content-main,.wrapper-home .dashboard,.wrapper-settings .dashboard{margin-top:63px;}';
-          style.innerHTML += '.profile-summary,.js-mini-profile-stats-container,.home-tweet-box{display:inline-block;vertical-align:middle;z-index:0;}';
-          style.innerHTML += '.profile-summary{display:flex;width:calc(100% - 290px);float:left;height:52px!important;}';
-          style.innerHTML += '.enhanced-mini-profile .mini-profile .profile-summary .profile-header-inner-overlay{height:52px!important;top:0!important;}';
-          style.innerHTML += '.module .tweet-content{width:266px!important;}';
-          style.innerHTML += '.enhanced-mini-profile .mini-profile-stats-container{position:absolute!important;right:0!important;width:220px;}';
-          style.innerHTML += '.dashboard .stats{border:0!important;}';
-          style.innerHTML += '.mini-profile .account-summary .account-group{padding-left:15px;}';
-          style.innerHTML += '.enhanced-mini-profile .mini-profile .profile-summary img.avatar{margin-top:-1px;}';
-          style.innerHTML += '.enhanced-mini-profile .mini-profile .profile-summary{padding:0!important;text-align:left!important;overflow:visible!important;background-size:calc(100% - 220px);}';
-          style.innerHTML += '.enhanced-mini-profile .mini-profile .profile-summary .fullname,.enhanced-mini-profile .mini-profile .profile-summary .screen-name{display:inline!important;vertical-align:middle;position:relative;}';
-          style.innerHTML += '.enhanced-mini-profile .mini-profile .profile-summary .fullname{top:-25px;margin-left:10px;}';
-          style.innerHTML += '.enhanced-mini-profile .mini-profile .profile-summary .screen-name{top:-22px;margin-left:10px;}';
-        }
-
         // wtf
         if (items['wtf'])
           style.innerHTML += '.wtf-module{display:none!important;}';
@@ -137,7 +115,7 @@ function injectCSS() {
 }
 
 window.onload = function() {
-  chrome.storage.sync.get('columns', function(items) {
+  chrome.storage.sync.get('columns', function (items) {
     if (items.columns && document.body.classList.contains('three-col')) {
       document.body.classList.remove('three-col');
     }
@@ -147,15 +125,15 @@ window.onload = function() {
   $(".js-signout-button").before('<li><a href="' + chrome.extension.getURL("/options/options.html") + '" target="_blank">ReTwit Options</a></li>');
 
   // Media cards based on: https://github.com/ivanm/imgur-twitter-cards
-  $(document).on('mousedown', '.js-stream-item', function() {
+  $(document).on('mousedown', '.js-stream-item', function () {
     appendCard($(this));
   });
 
-  $(".permalink .permalink-tweet").each(function() {
+  $(".permalink .permalink-tweet").each(function () {
     appendCard($(this));
   });
 
-  function appendCard(el) {
+  function appendCard (el) {
     if (!el.hasClass("imgur") && !el.hasClass("instagram")) {
       text = el.find(".tweet-text").text();
       if (text) {
@@ -173,34 +151,5 @@ window.onload = function() {
         }
       }
     }
-  }
-
-  // Show quote buttons at the start, and run it on a timer
-  $(document).ready(addQuote);
-  setInterval(addQuote, 4000);
-
-  var running = false;
-
-  function addQuote() {
-    if (running) return;
-    running = true;
-
-    $(".tweet").each(function() {
-      // No need to add to tweets that already have it
-      if ($(this).hasClass("quote")) return;
-
-      // Add the quote buttons
-      $(this).find(".action-rt-container").after('<li class="action-quote-container"><a role="button" class="with-icn"><span class="icon sm-quote"></span><b>Quote</b></a></li>');
-
-      $(this).addClass("quote");
-    });
-
-    $(".action-quote-container").click(function() {
-      $("#global-new-tweet-button").click();
-      var tweet = $(this).parent().parent().parent();
-      $(".modal-tweet-form-container #tweet-box-global").html('"@' + tweet.find(".username b").html() + ": " + tweet.find(".js-tweet-text").html() + '"');
-    });
-
-    running = false;
   }
 };

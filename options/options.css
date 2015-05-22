@@ -1,16 +1,25 @@
 html {
   background: #252525;
   color: #000;
-  font: 16px/20px normal "Segoe UI", Helvetica, Arial, sans-serif !important;
+  font: 16px/20px normal "Segoe UI", Helvetica, Arial, sans-serif;
 }
+
+html,
 body {
   margin: 0;
+  padding: 0;
 }
+
+input {
+  font: 16px/20px normal "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
 #box {
   background: #fff;
   margin: 0 auto 40px auto;
   width: 530px;
 }
+
 #top {
   background: #252525;
   display: block;
@@ -19,6 +28,7 @@ body {
   top: 0;
   width: 100%;
 }
+
 #header {
   background: #fff;
   height: 45px;
@@ -26,17 +36,20 @@ body {
   position: fixed;
   top: 40px;
 }
+
   #info {
     display: inline-block;
     vertical-align: middle;
     width: 294px;
   }
+
   #name {
     font-size: 18px;
     position: relative;
     top: -18px;
     left: 5px;
   }
+
   #status {
     background: #72cf6e;
     border: 1px solid #36a149;
@@ -49,9 +62,11 @@ body {
     -webkit-transition: opacity 1s;
     width: 180px;
   }
+
   #buttons {
     display: inline-block;
   }
+
   button {
     background: #fff;
     border: 1px solid #ccc;
@@ -61,25 +76,31 @@ body {
     margin-left: 20px;
     width: 80px;
   }
+
     button:hover {
       border-color: #bbb;
     }
+
   #btnSave {
     font-weight: bold;
   }
+
 #content {
   margin-top: 85px;
   padding: 15px;
 }
+
   h2 {
     font: 22px normal "Segoe UI Semilight", "Segoe UI", Helvetica, Arial, sans-serif;
     border-top: 1px solid #e8e8e8;
     padding-top: 15px;
   }
+
   #content section {
     display: block;
     margin-bottom: 20px;
   }
+
   #tip {
     color: #777;
     display: block;
@@ -87,14 +108,17 @@ body {
     font-style: italic;
     margin: 1em 0;
   }
+
   #content a {
     color: #2b82d9;
     text-decoration: none;
   }
+
   .selector {
     display: inline-block;
     width: 100px;
   }
+
   input[type='range'] {
     -webkit-appearance: none;
     background: #ccc;
@@ -103,6 +127,7 @@ body {
     margin: 10px;
     width: 480px;
   }
+
     input[type='range']::-webkit-slider-thumb {
       -webkit-appearance: none;
       background: #bbb;
@@ -111,22 +136,27 @@ body {
       height: 15px;
       width: 15px;
     }
+
     input[type='range']::-webkit-slider-thumb:hover {
       background: #ccc;
     }
+
 #footer {
   border-top: 1px solid #e8e8e8;
   font-size: 11px;
   padding: 13px 15px;
   text-align: center;
 }
+
   #footer span {
     margin: 10px;
   }
+
   #footer a {
     color: #8a8a8a;
     text-decoration: none;
   }
+
   #twitter_buttons {
     text-align: center;
   }
