@@ -2,9 +2,13 @@ Changelog
 =========
 
 v3.0
+- Cleaned up the code a lot
+- Bug fix: hiding profile card
+- Bug fix: fix rounded avatar border styling
+- Made styled scrollbars into an option
 - Removed quote functionality now that Twitter's added it back
 - Removed tweet action label hiding since it's the default now
-- Cleaned up the code a lot
+- Removed profile card shadow overlay option
 
 v2.6.2
 - Minor fixes (logo, searchbar, rounded avatar tweaks)

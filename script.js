@@ -7,7 +7,7 @@ function injectCSS () {
     var style = document.createElement('style');
 
     chrome.storage.sync.get(['barcolor', 'iconcolor', 'corners', 'width2', 'width3',
-                             'fade', 'shadow', 'roundavatars', 'previews',
+                             'fade', 'roundavatars', 'previews',
                              'flip', 'sidebar', 'miniprofile', 'miniprofilenormal',
                              'miniprofilewide', 'wtf', 'trends', 'footer', 'font'], function(items){
 
@@ -43,7 +43,7 @@ function injectCSS () {
 
         // Round avatars
         if (items['roundavatars']) {
-          style.innerHTML += '.avatar,.ProfileTweet-avatar{border:1px solid #fff;box-shadow:0 0 0 1px #eee;margin-top:-2px;margin-left:-2px;}';
+          style.innerHTML += '.avatar,.ProfileTweet-avatar{border:1px solid #fff;box-shadow:0 0 0 1px #eee;margin-top:-1px;margin-left:-1px;}';
           style.innerHTML += '.avatar,.profile-card.profile-header .profile-picture,.nav .session .dropdown-toggle,.current-user img,.ProfileTweet-avatar,.ProfileAvatar-image,.ProfileAvatar-placeholderImage,.ProfileAvatar,.ProfileCard-avatarImage,.ProfileCard-avatarLink,.DashboardProfileCard-avatarLink,.DashboardProfileCard-avatarImage,.ProfilePopupContainer--bellbird .ProfileHeader .profile-picture,.DMConversationAvatar--1 .DMConversationAvatar-image{-webkit-border-radius:100%!important;border-radius:100%!important;}';
         }
 
@@ -76,7 +76,7 @@ function injectCSS () {
 
         // miniprofile
         if (items['miniprofile'])
-          style.innerHTML += '.mini-profile{display:none!important;}';
+          style.innerHTML += '.DashboardProfileCard{display:none!important;}';
 
         // who to follow
         if (items['wtf'])
@@ -90,19 +90,25 @@ function injectCSS () {
         if (items['footer'])
           style.innerHTML += '.Footer{display:none!important;}';
 
-        if (!items['shadow'])
-          style.innerHTML += '.profile-header-inner-overlay{display:none!important;}';
-
         // Custom font
-        if (items["font"]) {
-          if (items["font"].indexOf("Twitter default") > -1) {
+        if (items['font']) {
+          if (items['font'].indexOf('Twitter default') > -1) {
             // Do nothing
-          } else if (items["font"].indexOf("ReTwit default") > -1) {
+          } else if (items['font'].indexOf('ReTwit default') > -1) {
             style.innerHTML += '*{font-family:"Segoe UI","Helvetica Neue",Helvetica-Neue,Helvetica,Arial,sans-serif!important;}';
           } else {
             $('head').append('<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=' + items["font"] + '">');
             style.innerHTML += '*{font-family:' + items["font"] + '!important;}';
           }
+        }
+
+        // Styled scrollbars
+        if (items['scrollbars']) {
+          style.innerHTML += '::-webkit-scrollbar {width:8px;height:8px;}' +
+                             '::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {display:block;height:0;background-color:#eee;}' +
+                             '::-webkit-scrollbar-track-piece {background-color:#eee;}' +
+                             '::-webkit-scrollbar-thumb:vertical {height:50px;background-color:#999;border-radius:8px;}' +
+                             '::-webkit-scrollbar-thumb:horizontal {width:50px;background-color:#999;border-radius:8px;}';
         }
     });
 
@@ -118,20 +124,20 @@ window.onload = function() {
   });
 
   // ReTwit options link in menu
-  $(".js-signout-button").before('<li><a href="' + chrome.extension.getURL("/options/options.html") + '" target="_blank">ReTwit Options</a></li>');
+  $('.js-signout-button').before('<li><a href="' + chrome.extension.getURL("/options/options.html") + '" target="_blank">ReTwit Options</a></li>');
 
   // Media cards based on: https://github.com/ivanm/imgur-twitter-cards
   $(document).on('mousedown', '.js-stream-item', function () {
     appendCard($(this));
   });
 
-  $(".permalink .permalink-tweet").each(function () {
+  $('.permalink .permalink-tweet').each(function () {
     appendCard($(this));
   });
 
   function appendCard (el) {
-    if (!el.hasClass("imgur") && !el.hasClass("instagram")) {
-      text = el.find(".tweet-text").text();
+    if (!el.hasClass('imgur') && !el.hasClass('instagram')) {
+      text = el.find('.tweet-text').text();
       if (text) {
         link = el.find('[data-expanded-url]').attr('data-expanded-url');
 
@@ -141,7 +147,7 @@ window.onload = function() {
           el.addClass('imgur');
         }
         // Instagram
-        else if (text.indexOf("instagram.com/p/") !== -1) {
+        else if (text.indexOf('instagram.com/p/') !== -1) {
           el.find('.expanded-content').prepend('<div class="CardAttribution"><strong>Instagram</strong></div><div><a target="_blank" href="' + link + '"><img src="'+link+'media/?size=l" alt="Embedded image permalink" width="100%"></a><div class="CardFooter"><div class="byline"><a target="_blank" href="' + link + '">View on web</a></div></div></div>');
           el.addClass('instagram');
         }

@@ -26,7 +26,7 @@ $(document).ready(function () {
   document.getElementById('btnReset').onclick = function () {
     $('#barcolor').val('#252525');
     $('#iconcolor').val('#66757f');
-    $('#shadow').attr('checked', true);
+    $('#scrollbars').attr('checked', false);
     $('#corners').attr('checked', true);
     $('#columns').attr('checked', false);
     $('#width2').val('850');
@@ -82,7 +82,7 @@ function save () {
   storage.set({
     'barcolor':          $('#barcolor').val(),
     'iconcolor':         $('#iconcolor').val(),
-    'shadow':            $('#shadow').is(':checked'),
+    'scrollbars':        $('#scrollbars').is(':checked'),
     'corners':           $('#corners').is(':checked'),
     'columns':           $('#columns').is(':checked'),
     'width2':            $('#width2').val(),
@@ -103,7 +103,7 @@ function save () {
 
 function loadChanges () {
   storage.get(['barcolor', 'iconcolor', 'corners', 'columns', 'width2', 'width3',
-               'fade', 'shadow', 'roundavatars', 'previews', 'flip',
+               'scrollbars', 'fade', 'roundavatars', 'previews', 'flip',
                'sidebar', 'miniprofile', 'miniprofilenormal', 'wtf', 'trends',
                'footer', 'font'], function(items) {
     if (items['barcolor'])
@@ -111,6 +111,9 @@ function loadChanges () {
 
     if (items['iconcolor'])
       $('#iconcolor').val(items['iconcolor']);
+
+    if (items['scrollbars'])
+      $('#scrollbars').prop('checked', true);
 
     if (items['corners'])
       $('#corners').prop('checked', true);
@@ -135,9 +138,6 @@ function loadChanges () {
       $('#fade').val(items['fade']);
       $('#chosenFade').html('Sidebar opacity: ' + items['fade'] + '%');
     }
-
-    if (items['shadow'])
-      $('#shadow').prop('checked', true);
 
     if (items['roundavatars'])
       $('#roundavatars').prop('checked', true);
