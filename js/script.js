@@ -7,7 +7,7 @@ function injectCSS () {
     var style = document.createElement('style');
 
     chrome.storage.sync.get(['barcolor', 'iconcolor', 'corners', 'width2', 'width3',
-                             'fade', 'roundavatars', 'previews',
+                             'fade', 'roundavatars', 'previews', 'scrollbars',
                              'flip', 'sidebar', 'miniprofile', 'miniprofilenormal',
                              'miniprofilewide', 'wtf', 'trends', 'footer', 'font'], function (items) {
 
