@@ -97,10 +97,6 @@
 // Main content
 // =======================================================
 
-.three-col .content-main {
-  width: 100% !important;
-}
-
 .btn,
 .twttr-dialog-header h3,
 .settings-header {
@@ -144,7 +140,7 @@
 
 .content-main,
 .profile-card.profile-header {
-  float: left !important;
+  // float: left !important;
 }
 
 .expand-action-wrapper {
@@ -166,7 +162,6 @@
 .stream .stream-item.open .tweet-actions,
 .stream-item .tweet-actions,
 .topbar {
-  box-shadow: none !important;
   box-shadow: none !important;
 }
 

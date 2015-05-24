@@ -19,13 +19,14 @@
   ],
 
   "background": {
-    "scripts":    ["install.js"],
+    "scripts":    ["js/install.js"],
     "persistent": false
   },
   "content_scripts": [{
     "matches": ["*://twitter.com/*"],
-    "css":     ["main.css"],
-    "js":      ["jquery-2.1.4.min.js", "script.js"]
+    "css":     ["css/main.css"],
+    "js":      ["js/jquery-2.1.4.min.js", "js/script.js"],
+    "run_at":  "document_end"
   }],
   "page_action": {
     "default_icon": {

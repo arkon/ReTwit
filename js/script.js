@@ -21,6 +21,7 @@ function injectCSS () {
           style.innerHTML += '.Icon--tweet{color:#fff!important;}';
         }
 
+        // Non-rounded corners
         if (items['corners'])
           style.innerHTML += '*{border-radius:0!important;-webkit-border-radius:0!important;}';
 
@@ -34,7 +35,7 @@ function injectCSS () {
         if (items['width3']) {
           // 3 columns
           style.innerHTML += '.three-col .wrapper,.three-col .wrapper-narrow,.three-col .wrapper-permalink,.three-col .global-nav .container{width:' + items['width3'] + 'px!important}';
-          style.innerHTML += '.three-col .content-main,.three-col .profile-page-header,.three-col .profile-page-header .profile-header-inner-overlay{width:' + (items['width3'] - 600) + 'px!important}';
+          style.innerHTML += '.three-col:not(.ProfilePage) .content-main,.three-col .profile-page-header,.three-col .profile-page-header .profile-header-inner-overlay{width:' + (items['width3'] - 600) + 'px!important}';
         }
 
         // Sidebar fade
@@ -60,7 +61,7 @@ function injectCSS () {
           style.innerHTML += '.content-main,.profile-card.profile-header{margin-left:10px!important;}';
         }
 
-        // sidebar + auto-hide sidebar if no modules to show
+        // Hide sidebar or auto-hide sidebar if no modules to show
         if ((items['sidebar']) ||
           (items['wtf'] && items['trends'] && items['footer'] && (items['miniprofile'] || items['miniprofilewide']))) {
           if (!items['sidebar'] && items['miniprofilewide']) {
@@ -74,19 +75,19 @@ function injectCSS () {
           style.innerHTML += '.three-col .wrapper-home .content-main,.three-col .wrapper-home .profile-page-header,.three-col .wrapper-home .profile-page-header .profile-header-inner-overlay{width:' + items['width3'] + 'px!important}';
         }
 
-        // miniprofile
+        // Sidebar: profile card
         if (items['miniprofile'])
           style.innerHTML += '.DashboardProfileCard{display:none!important;}';
 
-        // who to follow
+        // Sidebar: who to follow card
         if (items['wtf'])
           style.innerHTML += '.wtf-module{display:none!important;}';
 
-        // trends
+        // Sidebar: trends card
         if (items['trends'])
           style.innerHTML += '.trends{display:none!important;}';
 
-        // footer
+        // Sidebar: Twitter footer card
         if (items['footer'])
           style.innerHTML += '.Footer{display:none!important;}';
 
@@ -104,11 +105,7 @@ function injectCSS () {
 
         // Styled scrollbars
         if (items['scrollbars']) {
-          style.innerHTML += '::-webkit-scrollbar {width:8px;height:8px;}' +
-                             '::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {display:block;height:0;background-color:#eee;}' +
-                             '::-webkit-scrollbar-track-piece {background-color:#eee;}' +
-                             '::-webkit-scrollbar-thumb:vertical {height:50px;background-color:#999;border-radius:8px;}' +
-                             '::-webkit-scrollbar-thumb:horizontal {width:50px;background-color:#999;border-radius:8px;}';
+          style.innerHTML += '::-webkit-scrollbar {width:8px;height:8px;} ::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {display:block;height:0;background-color:#eee;} ::-webkit-scrollbar-track-piece {background-color:#eee;} ::-webkit-scrollbar-thumb:vertical {height:50px;background-color:#999;border-radius:8px;} ::-webkit-scrollbar-thumb:horizontal {width:50px;background-color:#999;border-radius:8px;}';
         }
     });
 
@@ -116,42 +113,45 @@ function injectCSS () {
   }
 }
 
-window.onload = function() {
-  chrome.storage.sync.get('columns', function (items) {
-    if (items.columns && document.body.classList.contains('three-col')) {
-      document.body.classList.remove('three-col');
-    }
-  });
 
-  // ReTwit options link in menu
-  $('.js-signout-button').before('<li><a href="' + chrome.extension.getURL("/options/options.html") + '" target="_blank">ReTwit Options</a></li>');
+// =======================================================
+// Run when DOM is loaded (document_end)
+// =======================================================
 
-  // Media cards based on: https://github.com/ivanm/imgur-twitter-cards
-  $(document).on('mousedown', '.js-stream-item', function () {
-    appendCard($(this));
-  });
+function appendCard (el) {
+  if (!el.hasClass('imgur') && !el.hasClass('instagram')) {
+    text = el.find('.tweet-text').text();
+    if (text) {
+      link = el.find('[data-expanded-url]').attr('data-expanded-url');
 
-  $('.permalink .permalink-tweet').each(function () {
-    appendCard($(this));
-  });
-
-  function appendCard (el) {
-    if (!el.hasClass('imgur') && !el.hasClass('instagram')) {
-      text = el.find('.tweet-text').text();
-      if (text) {
-        link = el.find('[data-expanded-url]').attr('data-expanded-url');
-
-        // Imgur
-        if (text.indexOf("i.imgur.com") !== -1) {
-          el.find('.expanded-content').prepend('<div class="CardAttribution"><img width="20" height="20" class="CardAttribution-avatar" src="https://pbs.twimg.com/profile_images/3723926625/e935032b01220d25946cde66dc317a1b_normal.png" alt=""><strong class="AttributionName">imgur</strong></div><div><a target="_blank" href="' + link + '"><img src="'+link+'" alt="Embedded image permalink" width="100%"></a><div class="CardFooter"><div class="byline"><a target="_blank" href="' + link + '">View on web</a></div></div></div>');
-          el.addClass('imgur');
-        }
-        // Instagram
-        else if (text.indexOf('instagram.com/p/') !== -1) {
-          el.find('.expanded-content').prepend('<div class="CardAttribution"><strong>Instagram</strong></div><div><a target="_blank" href="' + link + '"><img src="'+link+'media/?size=l" alt="Embedded image permalink" width="100%"></a><div class="CardFooter"><div class="byline"><a target="_blank" href="' + link + '">View on web</a></div></div></div>');
-          el.addClass('instagram');
-        }
+      // Imgur
+      if (text.indexOf("i.imgur.com") !== -1) {
+        el.find('.expanded-content').prepend('<div class="CardAttribution"><img width="20" height="20" class="CardAttribution-avatar" src="https://pbs.twimg.com/profile_images/3723926625/e935032b01220d25946cde66dc317a1b_normal.png" alt=""><strong class="AttributionName">imgur</strong></div><div><a target="_blank" href="' + link + '"><img src="'+link+'" alt="Embedded image permalink" width="100%"></a><div class="CardFooter"><div class="byline"><a target="_blank" href="' + link + '">View on web</a></div></div></div>');
+        el.addClass('imgur');
+      }
+      // Instagram
+      else if (text.indexOf('instagram.com/p/') !== -1) {
+        el.find('.expanded-content').prepend('<div class="CardAttribution"><strong>Instagram</strong></div><div><a target="_blank" href="' + link + '"><img src="'+link+'media/?size=l" alt="Embedded image permalink" width="100%"></a><div class="CardFooter"><div class="byline"><a target="_blank" href="' + link + '">View on web</a></div></div></div>');
+        el.addClass('instagram');
       }
     }
   }
-};
+}
+
+chrome.storage.sync.get('columns', function (items) {
+  if (items['columns'] && document.body.classList.contains('three-col')) {
+    document.body.classList.remove('three-col');
+  }
+});
+
+// ReTwit options link in menu
+$('.js-signout-button').before('<li><a href="' + chrome.extension.getURL("/options/options.html") + '" target="_blank">ReTwit Options</a></li>');
+
+// Media cards based on: https://github.com/ivanm/imgur-twitter-cards
+$(document).on('mousedown', '.js-stream-item', function () {
+  appendCard($(this));
+});
+
+$('.permalink .permalink-tweet').each(function () {
+  appendCard($(this));
+});
