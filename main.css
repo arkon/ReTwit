@@ -1,4 +1,6 @@
-/* Nav */
+// =======================================================
+// Navbar
+// =======================================================
 
 .global-nav .container {
   text-align: left !important;
@@ -21,12 +23,6 @@
   background: rgba(0,0,0,.15) !important;
   border: none !important;
   float: right;
-  width: 110px !important;
-}
-
-.global-nav .search-input:focus,
-.global-nav .search-input.focus {
-  width: 163px !important;
 }
 
 .bird-topbar-etched,
@@ -56,9 +52,9 @@
   background: none !important;
 }
 
+.dm-new,
 .global-nav .people .count,
-.global-nav .people .count .count-inner,
-.dm-new {
+.global-nav .people .count .count-inner {
   border-radius: 100% !important;
 }
 
@@ -66,12 +62,12 @@
   margin-left: 15px !important;
 }
 
-.global-nav,
-.nav .active > a,
 .btn-tweet,
-.card-soccer .cover,
 .button,
-.button.selected {
+.button.selected,
+.card-soccer .cover,
+.global-nav,
+.nav .active > a {
   background-image: none !important;
 }
 
@@ -83,21 +79,23 @@
     background-color: #4791d3 !important;
   }
 
-.dropdown-menu li > a:hover,
-.dropdown-menu li > a:focus,
-.dropdown-menu .dropdown-link:hover,
 .dropdown-menu .dropdown-link:focus,
-.dropdown-menu li:hover .dropdown-link,
-.dropdown-menu li:focus .dropdown-link,
+.dropdown-menu .dropdown-link:hover,
+.dropdown-menu .dropdown-link.selected,
+.dropdown-menu .selected a,
 .dropdown-menu .typeahead-recent-search-item.selected,
 .dropdown-menu .typeahead-saved-search-item.selected,
-.dropdown-menu .selected a,
-.dropdown-menu .dropdown-link.selected {
+.dropdown-menu li > a:focus,
+.dropdown-menu li > a:hover,
+.dropdown-menu li:focus .dropdown-link,
+.dropdown-menu li:hover .dropdown-link {
   background-image: none !important;
 }
 
 
-/* Content */
+// =======================================================
+// Main content
+// =======================================================
 
 .three-col .content-main {
   width: 100% !important;
@@ -160,14 +158,14 @@
 
 #header,
 .btn-tweet,
-.nav .active a,
 .global-nav .search-input,
-.topbar,
+.nav .active a,
 .stream
-.stream-item .tweet-actions,
-.stream .stream-item.open .tweet-actions,
 .stream .stream-item-activity .stream-item-footer .tweet-actions,
-.stream .stream-item.open .expanded-conversation .original-tweet-container .tweet-actions {
+.stream .stream-item.open .expanded-conversation .original-tweet-container .tweet-actions,
+.stream .stream-item.open .tweet-actions,
+.stream-item .tweet-actions,
+.topbar {
   box-shadow: none !important;
   box-shadow: none !important;
 }
@@ -200,13 +198,15 @@
   color: #fff !important;
 }
 
-.account, .interest-category, .list,
-.saved-search,
-.tweet:not(.open),
+.account,
 .app,
+.content-main .expansion-container > .original-tweet-container,
 .discover-item,
+.interest-category,
+.list,
+.saved-search,
 .stream-item-activity-me,
-.content-main .expansion-container > .original-tweet-container {
+.tweet:not(.open) {
   border-bottom: 0 !important;
 }
 
@@ -236,7 +236,9 @@
 }
 
 
-/* Sidebar */
+// =======================================================
+// Sidebar
+// =======================================================
 
 body:not(.three-col) .dashboard {
   float: right !important;
@@ -247,7 +249,8 @@ body:not(.three-col) .dashboard {
   transition: .15s linear;
 }
 
-.dashboard .module:hover, .dashboard .module:active {
+.dashboard .module:active,
+.dashboard .module:hover, {
   opacity: 1;
   transition: .15s linear;
 }
@@ -309,7 +312,10 @@ h2,
 }
 
 
-/* DM */
+// =======================================================
+// Direct messages
+// =======================================================
+
 .dm .avatar {
   top: 11px !important;
 }
@@ -321,4 +327,3 @@ h2,
 .dm-thread .chev-right {
   transform: none;
 }
-
